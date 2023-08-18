@@ -1,19 +1,42 @@
 <?php
-interface Car{
-
-    public function drive();
- 
+interface Animal{
+    public function makesound();
+    public function eat();
 
 }
 
-class bmw implements Car {
-    public function drive(){
-        return 'middle driving';
+class Dog implements Animal{
+    public function makesound(){
+        echo 'voof';
+    }
+
+    public function eat(){
+        echo 'meat';
     }
 }
 
-$bmw = new bmw();
-echo $bmw->drive();
+class Cow implements Animal{
+    public function makesound()
+    {
+        echo 'Muuu';
+    }
 
+    public function eat()
+    {
+        echo 'grass';
+    }
+}
+
+$dog = new Dog();
+$cow = new Cow();
+
+$animals = array($dog , $cow);
+foreach($animals as $animal)
+{
+   $animal -> makesound();
+   echo '<br>';
+   $animal -> eat();
+   echo '<br>';
+}
 
 ?>
